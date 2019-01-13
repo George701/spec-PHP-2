@@ -1,0 +1,15 @@
+<pre>
+<?php
+
+	if($_SERVER['REQUEST_METHOD']=='POST'){
+		print_r($_FILES);
+
+		move_uploaded_file($_FILES["userfile"]["tmp_name"], "upload/" . $_FILES["userfile"]["name"]);
+	}
+?>
+<!--  Multipart/form-data  -->
+<form action='upload.php' method='post' enctype='multipart/form-data'>
+    <input type="hidden" name="MAX_FILE_SIZE" value="4096">
+<input type='file' name='userfile'>
+<input type='submit'>
+</form>
